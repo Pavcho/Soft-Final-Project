@@ -1,0 +1,50 @@
+/* Removing margin and padding,also we make the box sizing border box
+and we add font */
+*{  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* Adding flexbox, making the logo align in the center and making the
+logo and the navbar go to the opposite sides, also adding padding and background color*/
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  background-color: rgb(241, 239, 236);
+}
+
+/* Changing the font size and the font weight of the list items, removing the lists style, displaying the list items as inline blocks,
+so they fit on the same line and adding padding*/
+.navigation_links li{
+  font-size: 25px;
+  font-weight: bold;
+  list-style: none; 
+  display: inline-block;
+  padding: 0 15px;
+}
+
+/* Adding color and removing the text decoration from the list links and also adding to all animations 400ms and ease*/
+.navigation_links li a{
+  color: #555;
+  text-decoration: none;
+  transition: all 400ms ease 0s;
+}
+
+/* Changing tge color when hovered over*/
+.navigation_links li a:hover{
+  color: rgb(16, 160, 204);
+}
+
+/* Making it when you hold the cursor on top of the logo, become a pointer */
+.logo{
+  cursor: pointer;
+}
+
+
+
+
+

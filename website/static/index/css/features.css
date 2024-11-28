@@ -1,0 +1,45 @@
+/* Adding max width and max height to all icons */
+.feature-icon{
+  max-width: 50px;
+  max-height: 50px;
+}
+
+/* Displaying all the items as flex and moving them in the center vertically and horizontally */
+.feature-heading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Adding padding to top and bottom and giving it background color */
+.features-bulletpoints{
+  padding-top: 75px;
+  padding-bottom: 75px;
+  background-color: white;
+
+}
+
+/* Giving the heading font size and color and also adding margin to the bottom */
+.features-main-header{
+  font-size: 50px;
+  color: #333;
+  margin-bottom: 80px;
+}
+
+/* Displaying the icons and icon titles as flex, and centering them horizontally,also adding gap */
+.features{
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+}
+
+/* Giving the feature text a font size */
+.feature-text{
+  font-size: 20px;
+}
+
+/* Giving the feature heading font size and color */
+.feature-h2{
+  font-size: 25px;
+  color: #333;
+}

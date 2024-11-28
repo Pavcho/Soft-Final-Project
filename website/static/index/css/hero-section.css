@@ -1,0 +1,64 @@
+/* Adding margin to the top of the hero section */
+.section-hero{
+  margin-top: 20px;
+}
+
+/* Adding max width and height to the image */
+.hero-img{
+  max-width: 700px;
+  max-height: 500px;
+}
+
+/* Adding max width and height to the text */
+.hero-text{
+  max-width: 700px;
+  max-height: 500px;
+}
+
+/* Making the image and the text flexed(sit next to eachother), making them at the center horizontally 
+and vertically and adding a gap */
+.hero{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+/* Adding font size, font weight and color to the heading of the text, and also line height and margin */
+.hero-heading{
+  font-size: 62px;
+  font-weight: 700;
+  color: #333;
+  
+  line-height: 1.05;
+  margin-bottom: 10px;
+}
+
+/* Adding font size and line height to the text */
+.hero-paragraph{
+  font-size: 23px;
+  line-height: 1.5;
+}
+
+/* Adding font size, font weight, color and text decoration to the button, also displaying 
+it as a inline block to add margin and adding to all animations 300ms and ease */
+.products-button{
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  
+  display: inline-block;
+  margin: 20px;
+  transition: all 300ms ease 0s;
+}
+
+/* Giving the button color, get bigger and add underline when hovered */
+.products-button:hover{
+  color: rgb(16, 160, 204);
+  transform: scale(1.03);
+  text-decoration: underline;
+}
+
+
+

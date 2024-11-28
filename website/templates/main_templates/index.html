@@ -1,0 +1,214 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technocenter</title>
+  <link rel="stylesheet" href="{% static 'index/css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/products.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/hero-section.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/features.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/footer.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/rights.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/FAQ.css' %}">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <!-- The img logo -->
+    <img class="logo" src="{% static 'index/images/techno-logo-4.png' %}" alt="logo">
+    <!-- Navigation -->
+      <nav class="navigation">
+        <!-- Unordered list of hyperlink, leading to the other pages -->
+        <ul class = "navigation_links">
+            <li><a href = index.html>Home</a></li>
+            <li><a href = index.html>Products</a></li>
+            <li><a href = index.html>About us</a></li>
+            <li><a href = index.html>Contacts</a></li>
+        </ul>
+      </nav>
+  </header>
+
+<!-- MAIN -->
+  <main>
+<!-- HERO SECTION -->
+    <section class="section-hero">
+
+      <div class="hero">
+        
+        <div class="hero-text">
+          <h1 class="hero-heading">The best of the best</h1>
+          <p class="hero-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, aliquid
+            Itaque adipisci sed natus id esse veniam eum officia, repellat voluptatem voluptatum sunt vel cum. Magnam officiis voluptas modi quasi.</p>
+          <a class="products-button" href="https://www.youtube.com/shorts/Ma4SYvqDjy8">Who are we &rarr;</a>
+        </div>
+
+        <div class="hero-image-box">
+          <img src="{% static 'index/images/mashinni-lageri.png' %}" class="hero-img" alt="">
+        </div>
+
+      </div>
+    </section>
+<!-- END OF HERO SECTION -->
+
+    <!-- PRODUCTS PAGE -->
+    <section class="all-products">
+
+    <h1 class="product_title"><a href="index.html">Products</a></h1>
+
+    <div class="all-products-flex">
+
+      <div class="products">
+        <a href="#">
+          <img class="zab_remaci" src="{% static 'index/images/checkmark.png' %}" alt="zabni_rematsi">
+          <h1 class="zab_remaci_name">product 1</h1>
+        </a>
+      </div>
+
+      <div class="products">
+        <a href="#">
+          <img class="lageri" src="{% static 'index/images/checkmark.png' %}" alt="lageri">
+          <h1 class="lageri_name">product 2</h1>
+        </a>
+      </div>
+
+      <div class="products">
+        <a href="#">
+          <img class="semeringi" src="{% static 'index/images/checkmark.png' %}" alt="semeringi">
+          <h1 class="semeringi_name">product 3</h1>
+        </a>
+      </div>
+
+      <div class="products">
+        <a href="#">
+          <img class="remuchni_shaibi" src="{% static 'index/images/checkmark.png' %}" alt="remuchni_shaibi">
+          <h1 class="remuchni_shaibi_name">product 4</h1>
+        </a>
+      </div>
+    </div> 
+
+    <a href="index.html" class="check-all-products">Check all products &rarr;</a>
+
+  </section>
+  <!-- END OF PRODUCTS PAGE -->
+
+
+<!-- FEATURE SECTION -->
+
+    <section class="features-bulletpoints">
+
+      <h1 class="features-main-header">Why buy from us?</h1>
+
+      <div class="features">
+
+        <div class="feature">
+          <div class = "feature-heading">
+            <img src="{% static 'index/images/check.png' %}" class="feature-icon">
+            <h2 class="feature-h2">Benefit 1</h2>
+          </div>
+            <p class="feature-text">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+        </div>
+
+        <div class="feature">
+          <div class = "feature-heading">
+            <img src="{% static 'index/images/check.png' %}" class="feature-icon">
+            <h2 class="feature-h2">Benefit 2</h2>
+          </div>
+            <p class="feature-text">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+        </div>
+
+        <div class="feature">
+          <div class = "feature-heading">
+            <img src="{% static 'index/images/check.png' %}" class="feature-icon">
+            <h2 class="feature-h2">Benefit 3</h2>
+          </div>
+            <p class="feature-text">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+        </div>
+
+      </div>
+
+    </section>
+<!-- END OF FEATURE SECTION -->
+
+<!-- START OF FAQ section -->
+    <section class="FAQ">
+      <h1 class="FAQ-main-header">Frequently asked questions</h1>
+
+      <div class="FAQ-flex1">
+
+        <div class="question question1">
+          <h2 class="question-title">How to work with belts?</h2>
+          <p class="question-answer">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi beatae, officia necessitatibus reprehenderit dolore repudiandae et modi quis.</p>
+        </div>
+
+        <div class="question question2">
+          <h2 class="question-title">Can I refund an item?</h2>
+          <p class="question-answer">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi beatae, officia necessitatibus reprehenderit dolore repudiandae et modi quis.</p>
+        </div>  
+
+    </div>
+
+    <div class="FAQ-flex2">
+
+      <div class="question question3">
+        <h2 class="question-title">How long does it take?</h2>
+        <p class="question-answer">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi beatae, officia necessitatibus reprehenderit dolore repudiandae et modi quis.</p>
+      </div>
+
+      <div class="question question4">
+        <h2 class="question-title">How much is the average price?</h2>
+        <p class="question-answer">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi beatae, officia necessitatibus reprehenderit dolore repudiandae et modi quis.</p>
+      </div>  
+
+  </div>
+
+
+      <a href="index.html" class="FAQ-more-info">More info &rarr;</a>
+
+    </section>
+<!-- END OF FAQ section -->
+
+  </main>
+<!-- END OF MAIN -->
+
+<!-- START OF FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo-box">
+      <img class="footer-logo" src="{% static 'index/images/techno-logo-2.png' %}" alt="logo">
+    </div>
+    
+    <div class="heading-one">
+      <h1 class="footer-heading">Browse</h1>
+      <ul class="footer-lists">
+        <li><a href = index.html>Home</a></li>
+        <li><a href = index.html>Products</a></li>
+        <li><a href = index.html>About us</a></li>
+        <li><a href = index.html>Contacts</a></li>
+      </ul>
+    </div>
+
+    <div class="heading-two">
+      <h1 class="footer-heading">Contact us</h1>
+      <ul class="footer-lists">
+        <li><i class="fa fa-phone fa-lg"></i> 089 098 8765</li>
+        <li><i class="fa fa-envelope fa-lg"></i> asdasd@gmail.com</li>
+        <li><i class="fa fa-map-marker fa-lg"></i> Ruse, Bulgaria</li>
+        <li><i class="fa fa-clock-o fa-lg"></i> Monday - Friday, 09:00 - 18:00</li>
+      </ul>
+    </div>
+  </footer>
+  <!--  END OF FOOTER  -->
+
+  <!-- START OF RIGHTS SECTION -->
+  <div class="rights">
+    <h3 class="rights-text">&copy; All rights reserved. Technocenter</h3>
+  </div>
+  <!-- END OF RIGHTS SECTION -->
+  
+</body>
+</html>
