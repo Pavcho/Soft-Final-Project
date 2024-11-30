@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+    <h1>Are you sure you want to log out?</h1>
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <button type="submit">Yes, Log Out</button>
+    </form>
+    <a href="{% url 'home' %}">Cancel</a>
+</body>
+
+{% endblock %}
