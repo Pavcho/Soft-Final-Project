@@ -27,11 +27,24 @@ so they fit on the same line and adding padding*/
   padding: 0 10px;
 }
 
+
 /* Adding color and removing the text decoration from the list links and also adding to all animations 400ms and ease*/
 .navigation_links li a{
   color: #555;
   text-decoration: none;
   transition: all 400ms ease 0s;
+}
+
+.navigation_links li .username {
+  border: 2px solid #555; /* Slimmer border */
+  border-radius: 15px; /* Rounded but less exaggerated */
+  padding: 15px; /* Smaller padding for balanced spacing */
+  background-color: rgb(241, 239, 236);
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.navigation_links li .username:hover {
+   background-color: white;
 }
 
 /* Changing tge color when hovered over*/
