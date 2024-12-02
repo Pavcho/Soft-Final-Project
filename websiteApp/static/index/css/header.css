@@ -36,11 +36,11 @@ so they fit on the same line and adding padding*/
 }
 
 .navigation_links li .username {
-  border: 2px solid #555; /* Slimmer border */
-  border-radius: 15px; /* Rounded but less exaggerated */
-  padding: 15px; /* Smaller padding for balanced spacing */
+  border: 2px solid #555;
+  border-radius: 15px; 
+  padding: 15px;
   background-color: rgb(241, 239, 236);
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  transition: all 0.3s ease;
 }
 
 .navigation_links li .username:hover {
