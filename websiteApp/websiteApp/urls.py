@@ -21,5 +21,5 @@ from websiteApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.IndexView.as_view(), name='home'),
-    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('accountsUsersApp.urls')),
 ]

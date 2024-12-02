@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-from accounts.validators import AllNumbersValidator, TenCharactersValidator
+from accountsUsersApp.validators import AllNumbersValidator, TenCharactersValidator
 
 
 class CustomUser(AbstractUser):

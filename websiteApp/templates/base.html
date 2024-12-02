@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="{% static 'index/css/footer.css' %}">
   <link rel="stylesheet" href="{% static 'index/css/rights.css' %}">
   <link rel="stylesheet" href="{% static 'index/css/FAQ.css' %}">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -25,10 +24,18 @@
       <nav class="navigation">
         <!-- Unordered list of hyperlink, leading to the other pages -->
         <ul class = "navigation_links">
-            <li><a href = index.html>Home</a></li>
-            <li><a href = index.html>Products</a></li>
-            <li><a href = index.html>About us</a></li>
-            <li><a href = index.html>Contacts</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'home' %}">Products</a></li>
+            <li><a href="{% url 'home' %}">About us</a></li>
+            <li><a href="{% url 'home' %}">Contacts</a></li>
+
+            {% if not user_authenticated %}
+                <li><a href="{% url 'register' %}">Sign up</a></li>
+                <li><a href="{% url 'login' %}">Log in</a></li>
+            {% else %}
+                <li><a href="{% url 'home' %}">Hi, {{ username }}</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% endif %}
         </ul>
       </nav>
   </header>
@@ -47,10 +54,10 @@
     <div class="heading-one">
       <h1 class="footer-heading">Browse</h1>
       <ul class="footer-lists">
-        <li><a href = index.html>Home</a></li>
-        <li><a href = index.html>Products</a></li>
-        <li><a href = index.html>About us</a></li>
-        <li><a href = index.html>Contacts</a></li>
+        <li><a href="main_templates/index.html">Home</a></li>
+        <li><a href="main_templates/index.html">Products</a></li>
+        <li><a href="main_templates/index.html">About us</a></li>
+        <li><a href="main_templates/index.html">Contacts</a></li>
       </ul>
     </div>
 
