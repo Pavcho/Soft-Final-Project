@@ -37,7 +37,7 @@ so they fit on the same line and adding padding*/
 
 .navigation_links li .username {
   border: 2px solid #555;
-  border-radius: 15px; 
+  border-radius: 15px;
   padding: 15px;
   background-color: rgb(241, 239, 236);
   transition: all 0.3s ease;
