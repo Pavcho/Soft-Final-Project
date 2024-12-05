@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h1>Username: {{ username }}</h1>
+    <h1>First name: {{ first_name }}</h1>
+    <h1>Last name: {{ last_name }}</h1>
+    <h1>Email: {{ email }}</h1>
+    <h1>Phone: {{ phone }}</h1>
+    <h1>Preferred_address: {{ preferred_address }}</h1>
+    <a href="{% url 'profile_edit' %}">Edit profile</a>
+    <a href="{% url 'profile_delete' %}">Delete profile</a>
+
+{% endblock %}
