@@ -4,8 +4,9 @@ from django.contrib.auth.views import LoginView
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
-from accountsUsersApp.forms import CustomUserCreationForm, CustomUserLoginForm, CustomUserEditForm
-from accountsUsersApp.models import CustomUser
+from accountsUsersApp.forms import CustomUserCreationForm, CustomUserLoginForm, CustomUserEditForm, \
+    ShippingAddressEditForm
+from accountsUsersApp.models import CustomUser, ShippingAddress
 
 
 # a view for register
@@ -40,13 +41,20 @@ class UserProfileView(DetailView, LoginRequiredMixin):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.request.user
+        shipping_address = user.shipping_address
+        context['shipping_address'] = shipping_address
         context['user_authenticated'] = user.is_authenticated
         context['username'] = user.username
         context['first_name'] = user.first_name
         context['last_name'] = user.last_name
         context['email'] = user.email
         context['phone'] = user.phone
-        context['preferred_address'] = user.preferred_address
+        if shipping_address:
+            context['address_line_1'] = shipping_address.address_line_1
+            context['address_line_2'] = shipping_address.address_line_2
+            context['city'] = shipping_address.city
+            context['country'] = shipping_address.country
+            context['zipcode'] = shipping_address.zipcode
         return context
 
 
@@ -78,6 +86,39 @@ class UserDeleteProfileView(DeleteView, LoginRequiredMixin):
 
     def get_object(self, queryset=None):
         return self.request.user
+
+    def form_valid(self, form):
+        user = self.request.user
+
+        if user.shipping_address:
+            user.shipping_address.delete()
+
+        logout(self.request)
+
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        context['user_authenticated'] = user.is_authenticated
+        context['username'] = user.username
+        return context
+
+
+# a view for selecting an address
+class UserEditAddressView(UpdateView, LoginRequiredMixin):
+    model = ShippingAddress
+    form_class = ShippingAddressEditForm
+    pk_url_kwarg = 'pk'
+    template_name = 'accounts/select_profile_address.html'
+    success_url = reverse_lazy('profile_details')
+
+    def get_object(self, queryset=None):
+        user = self.request.user
+        if not user.shipping_address:
+            user.shipping_address = ShippingAddress.objects.create()
+            user.save()
+        return user.shipping_address
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
