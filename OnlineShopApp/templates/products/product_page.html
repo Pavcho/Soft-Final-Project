@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="products-page">
+        <div class="product-container">
+            {% for product in products %}
+            <div class="product-box">
+                <img src="{{ product.image_url }}" alt="Wireless Mouse" class="product-image">
+                <div class="product-details">
+                    <h3 class="product-name">{{ product.name }}</h3>
+                    <p class="product-price">{{ product.price }}$</p>
+                    <p class="product-availability">{% if product.available %}In stock {% else %}Out of stock {% endif %}</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

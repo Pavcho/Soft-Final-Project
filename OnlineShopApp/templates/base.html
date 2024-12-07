@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="{% static 'index/css/footer.css' %}">
   <link rel="stylesheet" href="{% static 'index/css/rights.css' %}">
   <link rel="stylesheet" href="{% static 'index/css/FAQ.css' %}">
+  <link rel="stylesheet" href="{% static 'products/css/product.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -25,7 +26,7 @@
         <!-- Unordered list of hyperlink, leading to the other pages -->
         <ul class = "navigation_links">
             <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'home' %}">Products</a></li>
+            <li><a href="{% url 'products_page' %}">Products</a></li>
             <li><a href="{% url 'home' %}">About us</a></li>
             <li><a href="{% url 'home' %}">Contacts</a></li>
 
