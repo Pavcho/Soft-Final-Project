@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
@@ -5,8 +7,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 from accountsUsersApp.forms import CustomUserCreationForm, CustomUserLoginForm, CustomUserEditForm, \
-    ShippingAddressEditForm
-from accountsUsersApp.models import CustomUser, ShippingAddress
+    ShippingAddressEditForm, FundsDepositForm
+from accountsUsersApp.models import CustomUser, ShippingAddress, Funds
 
 
 # a view for register
@@ -42,6 +44,7 @@ class UserProfileView(DetailView, LoginRequiredMixin):
         context = super().get_context_data(**kwargs)
         user = self.request.user
         shipping_address = user.shipping_address
+        funds = user.funds
         context['shipping_address'] = shipping_address
         context['user_authenticated'] = user.is_authenticated
         context['username'] = user.username
@@ -49,6 +52,8 @@ class UserProfileView(DetailView, LoginRequiredMixin):
         context['last_name'] = user.last_name
         context['email'] = user.email
         context['phone'] = user.phone
+        if funds:
+            context['funds'] = funds.sum
         if shipping_address:
             context['address_line_1'] = shipping_address.address_line_1
             context['address_line_2'] = shipping_address.address_line_2
@@ -93,6 +98,9 @@ class UserDeleteProfileView(DeleteView, LoginRequiredMixin):
         if user.shipping_address:
             user.shipping_address.delete()
 
+        if user.funds:
+            user.funds.delete()
+
         logout(self.request)
 
         return super().form_valid(form)
@@ -119,6 +127,39 @@ class UserEditAddressView(UpdateView, LoginRequiredMixin):
             user.shipping_address = ShippingAddress.objects.create()
             user.save()
         return user.shipping_address
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        context['user_authenticated'] = user.is_authenticated
+        context['username'] = user.username
+        return context
+
+
+# a view for depositing funds
+class UserDepositFundsView(UpdateView, LoginRequiredMixin):
+    model = Funds
+    form_class = FundsDepositForm
+    pk_url_kwarg = 'pk'
+    template_name = 'accounts/deposit_funds_profile.html'
+    success_url = reverse_lazy('profile_details')
+
+    def get_object(self, queryset=None):
+        user = self.request.user
+        if not user.funds:
+            user.funds = Funds.objects.create()
+            user.save()
+        return user.funds
+
+    def form_valid(self, form):
+        user = self.request.user
+        current_user_funds = user.funds
+        current_user_funds.sum += current_user_funds.last_deposit
+        current_user_funds.temporary_placeholder_name = ""
+        current_user_funds.temporary_CVV = ""
+        current_user_funds.temporary_card_number = ""
+        current_user_funds.expiration_date = date.today()
+        return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

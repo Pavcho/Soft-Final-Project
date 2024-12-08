@@ -6,6 +6,7 @@
     <h1>Last name: {{ last_name }}</h1>
     <h1>Email: {{ email }}</h1>
     <h1>Phone: {{ phone }}</h1>
+    <h1>Funds: {{ funds }}</h1>
     {% if shipping_address %}
         <h1>Address_line_1: {{ address_line_1 }}</h1>
         <h1>Address_line_2: {{ address_line_2 }}</h1>
@@ -18,5 +19,6 @@
     <a href="{% url 'profile_edit' %}">Edit profile</a>
     <a href="{% url 'profile_delete' %}">Delete profile</a>
     <a href="{% url 'profile_change_address' %}">Change address</a>
+    <a href="{% url 'profile_deposit' %}">Deposit funds</a>
 
 {% endblock %}
