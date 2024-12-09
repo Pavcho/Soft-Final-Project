@@ -6,20 +6,20 @@
         <div class="product-container">
             {% for product in products %}
             <div class="product-box">
-                <img src="{{ product.image_url }}" alt="Wireless Mouse" class="product-image">
+                <img src="{{ product.image_url }}" alt="{{ product.name }}" class="product-image">
                 <div class="product-details">
                     <h3 class="product-name">{{ product.name }}</h3>
                     <p class="product-price">{{ product.price }}$</p>
-                    <p class="product-availability">{% if product.available %}In stock {% else %}Out of stock {% endif %}</p>
-                    
-                    <form action="{% url 'add_to_cart' product.id %}" method="post">
-                        {% csrf_token %}    
-                        <button class="add-to-cart-btn">Add to Cart</button>
-                    </form>
-                
                 </div>
             </div>
             {% endfor %}
+        
+            <form action="{% url 'buy_from_cart' whole_price %}" method="post">
+                {% csrf_token %}    
+                <h1>Total: {{ whole_price }}$</h1>
+                <button class="add-to-cart-btn">Buy!</button>
+            </form>
+        
         </div>
     </div>
 

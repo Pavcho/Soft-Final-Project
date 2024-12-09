@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 from accountsUsersApp.forms import CustomUserCreationForm, CustomUserLoginForm, CustomUserEditForm, \
     ShippingAddressEditForm, FundsDepositForm
-from accountsUsersApp.models import CustomUser, ShippingAddress, Funds
+from accountsUsersApp.models import CustomUser, ShippingAddress, Funds, Cart
 
 
 # a view for register
@@ -16,6 +16,17 @@ class UserRegisterView(CreateView):
     form_class = CustomUserCreationForm
     template_name = 'accounts/register.html'
     success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+
+        user = form.instance
+        user.shipping_address = ShippingAddress.objects.create()
+        user.funds = Funds.objects.create()
+        user.cart = Cart.objects.create()
+        user.save()
+
+        return response
 
 
 # a view for login
@@ -101,6 +112,9 @@ class UserDeleteProfileView(DeleteView, LoginRequiredMixin):
         if user.funds:
             user.funds.delete()
 
+        if user.cart:
+            user.cart.delete()
+
         logout(self.request)
 
         return super().form_valid(form)
@@ -167,3 +181,4 @@ class UserDepositFundsView(UpdateView, LoginRequiredMixin):
         context['user_authenticated'] = user.is_authenticated
         context['username'] = user.username
         return context
+

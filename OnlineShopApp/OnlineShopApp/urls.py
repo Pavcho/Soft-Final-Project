@@ -17,10 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from OnlineShopApp import views
+from OnlineShopApp.views import CartPageView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.IndexView.as_view(), name='home'),
     path('accounts/', include('accountsUsersApp.urls')),
-    path('products/', include('ProductsApp.urls'))
+    path('products/', include('ProductsApp.urls')),
+    path('add-to-cart/<int:product_id>/', views.add_to_cart, name='add_to_cart'),
+    path('buy-from-cart/<str:whole_price>/', views.buy_from_cart, name='buy_from_cart'),
+    path('cart/',CartPageView.as_view(), name='cart'),
 ]

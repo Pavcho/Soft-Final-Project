@@ -1,6 +1,6 @@
 from datetime import date
-
 from django.contrib.auth.models import AbstractUser
+from django.contrib.postgres.fields import ArrayField
 from django.core.validators import DecimalValidator, MinValueValidator, MinLengthValidator
 from django.db import models
 from accountsUsersApp.validators import AllNumbersValidator, TenCharactersValidator
@@ -27,6 +27,12 @@ class CustomUser(AbstractUser):
                               related_name='funds',
                               null=True,
                               blank=True)
+
+    cart = models.ForeignKey(to='Cart',
+                             on_delete=models.CASCADE,
+                             related_name='cart',
+                             null=True,
+                             blank=True)
 
 class ShippingAddress(models.Model):
    address_line_1 = models.CharField(
@@ -56,7 +62,6 @@ class ShippingAddress(models.Model):
        help_text="Zip Code",
    )
 
-
 class Funds(models.Model):
     sum = models.DecimalField(default=0.0,
                               max_digits=6,
@@ -76,16 +81,14 @@ class Funds(models.Model):
                                    decimal_places=2)
 
     temporary_placeholder_name = models.CharField(default="",
-                                                  max_length=30,
-                                                  unique=True,)
+                                                  max_length=30,)
 
     temporary_card_number = models.CharField(default="",
                                              max_length=16,
                                              validators=[
                                                  TenCharactersValidator(),
                                                  AllNumbersValidator()
-                                             ],
-                                             unique=True)
+                                             ])
 
     temporary_expiration_date = models.DateField(default=date.today())
 
@@ -96,3 +99,6 @@ class Funds(models.Model):
                                      ],
                                      max_length=3,
                                      verbose_name="CVV",)
+
+class Cart(models.Model):
+    item_ids = ArrayField(models.IntegerField(), blank=True, default=list)
