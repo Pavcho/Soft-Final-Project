@@ -17,6 +17,8 @@ class IndexView(TemplateView):
             context['username'] = user.username
         return context
 
+class SuccessfulPaymentView(TemplateView):
+    template_name = "products/successful_payment.html"
 
 # a view when the add to cart button is clicked
 def add_to_cart(request, product_id):
@@ -40,11 +42,11 @@ def buy_from_cart(request, whole_price):
     if user.funds.sum >= whole_price:
         if user.shipping_address.address_line_1:
             user.funds.sum -= Decimal(str(whole_price))
+            user.funds.last_buy = float(whole_price)
             user.funds.save()
             user.cart.item_ids = []
             user.cart.save()
-            print("Congratulations, You ordered successfully!")
-            return redirect('home')
+            return redirect('successful_payment')
         else:
             print("Invalid address! Please put in your address.")
             return redirect('profile_change_address')
@@ -54,6 +56,11 @@ def buy_from_cart(request, whole_price):
 
     return redirect('products_page')
 
+def remove_all_from_card(request):
+    user = request.user
+    user.cart.item_ids = []
+    user.cart.save()
+    return redirect('cart')
 
 class CartPageView(TemplateView):
     template_name = "products/cart_page.html"

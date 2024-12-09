@@ -26,5 +26,7 @@ urlpatterns = [
     path('products/', include('ProductsApp.urls')),
     path('add-to-cart/<int:product_id>/', views.add_to_cart, name='add_to_cart'),
     path('buy-from-cart/<str:whole_price>/', views.buy_from_cart, name='buy_from_cart'),
+    path('remove-all-from-cart/', views.remove_all_from_card,name='remove_all_from_cart'),
+    path('successful-payment/', views.SuccessfulPaymentView.as_view(), name='successful_payment'),
     path('cart/',CartPageView.as_view(), name='cart'),
 ]

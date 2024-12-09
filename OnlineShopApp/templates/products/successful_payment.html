@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful</title>
+    <link rel="stylesheet" href="{% static 'products/css/payment.css' %}">
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="green" width="96px" height="96px">
+                <path d="M12 0C5.383 0 0 5.383 0 12c0 6.617 5.383 12 12 12 6.617 0 12-5.383 12-12C24 5.383 18.617 0 12 0zm6.199 9.201l-7.398 7.398c-.195.195-.451.293-.708.293s-.512-.098-.707-.293l-3.599-3.598c-.391-.391-.391-1.023 0-1.414.391-.391 1.023-.391 1.414 0l2.891 2.891 6.691-6.691c.391-.391 1.023-.391 1.414 0s.391 1.023 0 1.414z"/>
+            </svg>
+        </div>
+        <h1>Payment Successful!</h1>
+        <p>Thank you for your purchase. Your receipt and information about your purchase was sent to your email!</p>
+        <a href="{% url 'home' %}" class="button">Go Back to Homepage</a>
+    </div>
+</body>
+</html>

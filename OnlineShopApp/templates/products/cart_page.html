@@ -20,6 +20,11 @@
                 <button class="add-to-cart-btn">Buy!</button>
             </form>
         
+            <form action="{% url 'remove_all_from_cart' %}" method="post">
+                {% csrf_token %}
+                <button class="remove-from-cart-btn">Empty cart!</button>
+            </form>
+        
         </div>
     </div>
 
