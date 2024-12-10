@@ -76,7 +76,7 @@
     font-size: 14px;
     font-weight: bold;
     color: #fff;
-    background-color: #007bff;
+    background-color: #777;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -84,15 +84,15 @@
 }
 
 .products-page .add-to-cart-btn:hover {
-    background-color: #0056b3;
+    background-color: black;
 }
 
 .already-in-cart-btn:hover {
-    background-color: #007bff;
+    background-color: #777;
     color: #fff;
     cursor: default;
 }
 
 .products-page .remove-from-cart-btn:hover {
-    background-color: #0056b3;
+    background-color: black;
 }

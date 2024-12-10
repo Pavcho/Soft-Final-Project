@@ -31,9 +31,8 @@
 }
 
 #funds-form input:focus {
-    border-color: #007bff;
+    border-color: #777;
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 #funds-form button {
@@ -41,12 +40,12 @@
     padding: 10px;
     font-size: 1em;
     color: #fff;
-    background-color: #007bff;
+    background-color: #777;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
 #funds-form button:hover {
-    background-color: #0056b3;
+    background-color: black;
 }

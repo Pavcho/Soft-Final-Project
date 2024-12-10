@@ -65,6 +65,8 @@ class UserProfileView(DetailView, LoginRequiredMixin):
         context['phone'] = user.phone
         if funds:
             context['funds'] = funds.sum
+            context['last_deposit'] = funds.last_deposit
+            context['last_buy'] = funds.last_buy
         if shipping_address:
             context['address_line_1'] = shipping_address.address_line_1
             context['address_line_2'] = shipping_address.address_line_2

@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    gap: 60px;
+    justify-content: space-between;
+    min-height: 450px;
+    margin: 100px;
+}
+
+.account-details, .address-details, .funds-details{
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.account-details h1, .address-details h1, .funds-details h1{
+    font-size: 27px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.account-details h2, .address-details h2, .funds-details h2{
+    font-size: 23px;
+    padding-bottom: 7px;
+    color: #333333;
+}
+
+.account-details a, .address-details a, .funds-details a{
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #777;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.account-details a:hover, .address-details a:hover, .funds-details a:hover{
+    background-color: black;
+}
+
+.profile-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 105px;
+}
+
+.address-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 105px;
+}
+
+.deposit-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 170px;
+}
