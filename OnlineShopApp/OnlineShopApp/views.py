@@ -18,6 +18,18 @@ class IndexView(TemplateView):
             context['funds'] = user.funds.sum
         return context
 
+class ContactUsView(TemplateView):
+    template_name = "main_templates/contact_us.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        context['user_authenticated'] = user.is_authenticated
+        if user.is_authenticated:
+            context['username'] = user.username
+            context['funds'] = user.funds.sum
+        return context
+
 class SuccessfulPaymentView(TemplateView):
     template_name = "products/successful_payment.html"
 

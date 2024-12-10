@@ -22,6 +22,7 @@ from OnlineShopApp.views import CartPageView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.IndexView.as_view(), name='home'),
+    path('contact-us',views.ContactUsView.as_view(), name='contact_us'),
     path('accounts/', include('accountsUsersApp.urls')),
     path('products/', include('ProductsApp.urls')),
     path('add-to-cart/<int:product_id>/', views.add_to_cart, name='add_to_cart'),

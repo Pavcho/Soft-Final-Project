@@ -14,8 +14,11 @@
   <link rel="stylesheet" href="{% static 'index/css/rights.css' %}">
   <link rel="stylesheet" href="{% static 'index/css/FAQ.css' %}">
   <link rel="stylesheet" href="{% static 'products/css/product.css' %}">
-  <link rel="stylesheet" href="{% static 'accounts/accounts_deposit_funds/css/styles.css' %}">  
+  <link rel="stylesheet" href="{% static 'accounts/accounts_deposit_funds/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'contact_us/css/contact_us.css' %}">  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">  
+
 </head>
 <body>
   <!-- HEADER -->
@@ -27,7 +30,7 @@
         <ul class = "navigation_links">
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'products_page' %}">Products</a></li>
-            <li><a href="{% url 'home' %}">Contacts</a></li>
+            <li><a href="{% url 'contact_us' %}">Contacts</a></li>
         </ul>
         <ul class = "navigation_links">
             {% if not user_authenticated %}
@@ -58,7 +61,7 @@
       <ul class="footer-lists">
         <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="{% url 'products_page' %}">Products</a></li>
-        <li><a href="{% url 'products_page' %}">Contacts</a></li>
+        <li><a href="{% url 'contact_us' %}">Contacts</a></li>
       </ul>
     </div>
 
