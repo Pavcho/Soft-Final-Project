@@ -20,6 +20,9 @@ class IndexView(TemplateView):
 class SuccessfulPaymentView(TemplateView):
     template_name = "products/successful_payment.html"
 
+class SuccessfulDepositView(TemplateView):
+    template_name = "products/successful_deposit.html"
+
 # a view when the add to cart button is clicked
 def add_to_cart(request, product_id):
     user = request.user

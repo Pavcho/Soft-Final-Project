@@ -28,5 +28,6 @@ urlpatterns = [
     path('buy-from-cart/<str:whole_price>/', views.buy_from_cart, name='buy_from_cart'),
     path('remove-all-from-cart/', views.remove_all_from_card,name='remove_all_from_cart'),
     path('successful-payment/', views.SuccessfulPaymentView.as_view(), name='successful_payment'),
+    path('successful-deposit/', views.SuccessfulDepositView.as_view(), name='successful_deposit'),
     path('cart/',CartPageView.as_view(), name='cart'),
 ]

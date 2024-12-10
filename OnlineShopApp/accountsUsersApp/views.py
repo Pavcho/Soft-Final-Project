@@ -156,7 +156,7 @@ class UserDepositFundsView(UpdateView, LoginRequiredMixin):
     form_class = FundsDepositForm
     pk_url_kwarg = 'pk'
     template_name = 'accounts/deposit_funds_profile.html'
-    success_url = reverse_lazy('profile_details')
+    success_url = reverse_lazy('successful_deposit')
 
     def get_object(self, queryset=None):
         user = self.request.user

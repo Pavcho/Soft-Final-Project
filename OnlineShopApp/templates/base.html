@@ -23,14 +23,14 @@
     <!-- The img logo -->
     <img class="logo" src="{% static 'index/images/techno-logo-4.png' %}" alt="logo">
     <!-- Navigation -->
-      <nav class="navigation">
         <!-- Unordered list of hyperlink, leading to the other pages -->
         <ul class = "navigation_links">
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'products_page' %}">Products</a></li>
             <li><a href="{% url 'home' %}">About us</a></li>
             <li><a href="{% url 'home' %}">Contacts</a></li>
-
+        </ul>
+        <ul class = "navigation_links">
             {% if not user_authenticated %}
                 <li><a href="{% url 'register' %}">Sign up</a></li>
                 <li><a href="{% url 'login' %}">Log in</a></li>
@@ -40,7 +40,6 @@
                 <li><a class="username" href="{% url 'logout' %}">Logout</a></li>
             {% endif %}
         </ul>
-      </nav>
   </header>
 <!-- END OF HEADER -->
 
