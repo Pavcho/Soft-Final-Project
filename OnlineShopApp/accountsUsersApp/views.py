@@ -90,6 +90,7 @@ class UserEditProfileView(UpdateView, LoginRequiredMixin):
         user = self.request.user
         context['user_authenticated'] = user.is_authenticated
         context['username'] = user.username
+        context['funds'] = user.funds.sum
         return context
 
 
@@ -124,6 +125,7 @@ class UserDeleteProfileView(DeleteView, LoginRequiredMixin):
         user = self.request.user
         context['user_authenticated'] = user.is_authenticated
         context['username'] = user.username
+        context['funds'] = user.funds.sum
         return context
 
 
@@ -147,6 +149,7 @@ class UserEditAddressView(UpdateView, LoginRequiredMixin):
         user = self.request.user
         context['user_authenticated'] = user.is_authenticated
         context['username'] = user.username
+        context['funds'] = user.funds.sum
         return context
 
 
@@ -180,5 +183,6 @@ class UserDepositFundsView(UpdateView, LoginRequiredMixin):
         user = self.request.user
         context['user_authenticated'] = user.is_authenticated
         context['username'] = user.username
+        context['funds'] = user.funds.sum
         return context
 

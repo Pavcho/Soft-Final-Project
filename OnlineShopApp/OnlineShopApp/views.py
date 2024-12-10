@@ -15,6 +15,7 @@ class IndexView(TemplateView):
         context['user_authenticated'] = user.is_authenticated
         if user.is_authenticated:
             context['username'] = user.username
+            context['funds'] = user.funds.sum
         return context
 
 class SuccessfulPaymentView(TemplateView):
@@ -34,7 +35,7 @@ def add_to_cart(request, product_id):
     if product_id not in user.cart.item_ids:
         user.cart.item_ids.append(product_id)
         user.cart.save()
-        return redirect('cart')
+        return redirect('products_page')
 
     return redirect('products_page')
 
@@ -82,4 +83,5 @@ class CartPageView(TemplateView):
                     whole_price += product.price
             context['products'] = products_array
             context['whole_price'] = f"{whole_price:,.2f}"
+            context['funds'] = user.funds.sum
         return context

@@ -1,25 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
+    <h1 class="products-page-heading">Products</h1>
     <div class="products-page">
         <div class="product-container">
-            {% for product in products %}
-            <div class="product-box">
-                <img src="{{ product.image_url }}" alt="Wireless Mouse" class="product-image">
-                <div class="product-details">
-                    <h3 class="product-name">{{ product.name }}</h3>
-                    <p class="product-price">{{ product.price }}$</p>
-                    <p class="product-availability">{% if product.available %}In stock {% else %}Out of stock {% endif %}</p>
-                    
-                    <form action="{% url 'add_to_cart' product.id %}" method="post">
-                        {% csrf_token %}    
-                        <button class="add-to-cart-btn">Add to Cart</button>
-                    </form>
-                
-                </div>
-            </div>
-            {% endfor %}
+            {% if not products %}
+                <h1 class="products-page-heading">No products found</h1>
+            {% else %}
+                {% for product in products %}
+                    <div class="product-box">
+                        <img src="{{ product.image_url }}" alt="Wireless Mouse" class="product-image">
+                        <div class="product-details">
+                            <h3 class="product-name">{{ product.name }}</h3>
+                            <p class="product-price">{{ product.price }}$</p>
+                            <p class="product-availability">{% if product.available %}In stock {% else %}Out of stock {% endif %}</p>
+                            
+                            {% if product.available %}
+                                {% if product.id not in cart_list %}
+                                    <form action="{% url 'add_to_cart' product.id %}" method="post">
+                                        {% csrf_token %}    
+                                        <button class="add-to-cart-btn">Add to Cart</button>
+                                    </form>
+                                {% else %}
+                                        <button class="already-in-cart-btn" disabled>Already in Cart</button>
+                                {% endif %}    
+                            {% endif %}
+                        
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
 

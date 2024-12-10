@@ -1,6 +1,8 @@
 /* Adding margin to the top of the hero section */
 .section-hero{
   margin-top: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 /* Adding max width and height to the image */

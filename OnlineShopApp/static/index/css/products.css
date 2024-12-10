@@ -5,7 +5,7 @@ main{
   background-color: rgb(255, 255, 255); 
 }
 
-/* Giving all the images width and hegith */
+/* Giving all the images width and height */
 a img{
   height: 300px;
   width: 300px;
@@ -22,7 +22,7 @@ a img{
   text-align: center;
 }
 
-/* Adding products to all products and displaying them as inline block to sit next to eachother */
+/* Adding products to all products and displaying them as inline block to sit next to each other */
 .products{
   padding: 20px;
   display: inline-block
@@ -93,7 +93,7 @@ also adding margin to top and bottom */
   margin-bottom: 50px;
 }
 
-/* Giving the button when hovered color, trasformation and underline */
+/* Giving the button when hovered color, transformation and underline */
 .check-all-products:hover{
   color: rgb(16, 160, 204);
   transform: scale(1.03);

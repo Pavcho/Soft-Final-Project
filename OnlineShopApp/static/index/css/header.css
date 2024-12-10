@@ -52,10 +52,6 @@ so they fit on the same line and adding padding*/
   color: rgb(16, 160, 204);
 }
 
-/* Making it when you hold the cursor on top of the logo, become a pointer */
-.logo{
-  cursor: pointer;
-}
 
 
 

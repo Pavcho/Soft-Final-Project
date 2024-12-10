@@ -12,13 +12,14 @@
         
         <div class="hero-text">
           <h1 class="hero-heading">The best of the best</h1>
-          <p class="hero-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, aliquid
-            Itaque adipisci sed natus id esse veniam eum officia, repellat voluptatem voluptatum sunt vel cum. Magnam officiis voluptas modi quasi.</p>
-          <a class="products-button" href="https://www.youtube.com/shorts/Ma4SYvqDjy8">Who are we &rarr;</a>
+          <p class="hero-paragraph">Our mission is to deliver performance-enhancing solutions that
+              elevate the user experience and set the gold standard in the peripheral industry.We understand the needs of gamers, 
+              professionals, and everyday users.</p>
+          <a class="products-button" href="{% url 'products_page' %}">Who are we &rarr;</a>
         </div>
 
         <div class="hero-image-box">
-          <img src="{% static 'index/images/mashinni-lageri.png' %}" class="hero-img" alt="">
+          <img src="{% static 'index/images/gaming-mouse.png' %}" class="hero-img" alt="">
         </div>
 
       </div>
@@ -28,40 +29,40 @@
     <!-- PRODUCTS PAGE -->
     <section class="all-products">
 
-    <h1 class="product_title"><a href="index.html">Products</a></h1>
+    <h1 class="product_title"><a href="{% url 'products_page' %}">Top Sellers</a></h1>
 
     <div class="all-products-flex">
 
       <div class="products">
-        <a href="#">
-          <img class="zab_remaci" src="{% static 'index/images/checkmark.png' %}" alt="zabni_rematsi">
-          <h1 class="zab_remaci_name">product 1</h1>
+        <a href="{% url 'products_page' %}">
+          <img class="first_top_seller" src="{% static 'index/images/white_gaming_mouse.png' %}" alt="white-mouse-razor">
+          <h1 class="first_top_seller_name">Razor mouse</h1>
         </a>
       </div>
 
       <div class="products">
-        <a href="#">
-          <img class="lageri" src="{% static 'index/images/checkmark.png' %}" alt="lageri">
-          <h1 class="lageri_name">product 2</h1>
+        <a href="{% url 'products_page' %}">
+          <img class="second_top_seller" src="{% static 'index/images/white_keyboard.png' %}" alt="white-keyboard">
+          <h1 class="second_top_seller_name">Red Dragon keyboard</h1>
         </a>
       </div>
 
       <div class="products">
-        <a href="#">
-          <img class="semeringi" src="{% static 'index/images/checkmark.png' %}" alt="semeringi">
-          <h1 class="semeringi_name">product 3</h1>
+        <a href="{% url 'products_page' %}">
+          <img class="third_best_seller" src="{% static 'index/images/gaming_laptop.png' %}" alt="white-laptop">
+          <h1 class="third_best_seller_name">TUF Gaming laptop</h1>
         </a>
       </div>
 
       <div class="products">
-        <a href="#">
-          <img class="remuchni_shaibi" src="{% static 'index/images/checkmark.png' %}" alt="remuchni_shaibi">
-          <h1 class="remuchni_shaibi_name">product 4</h1>
+        <a href="{% url 'products_page' %}">
+          <img class="fourth_top_seller" src="{% static 'index/images/playstation-5.png' %}" alt="playstation-5">
+          <h1 class="fourth_top_seller_name">Playstation 5</h1>
         </a>
       </div>
     </div> 
 
-    <a href="index.html" class="check-all-products">Check all products &rarr;</a>
+    <a href="{% url 'products_page' %}" class="check-all-products">Check all products &rarr;</a>
 
   </section>
   <!-- END OF PRODUCTS PAGE -->
@@ -77,26 +78,26 @@
 
         <div class="feature">
           <div class = "feature-heading">
-            <img src="{% static 'index/images/check.png' %}" class="feature-icon">
-            <h2 class="feature-h2">Benefit 1</h2>
+            <img src="{% static 'index/images/fast_delivery.png' %}" class="feature-icon">
+            <h2 class="feature-h2">Fast Delivery</h2>
           </div>
-            <p class="feature-text">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+            <p class="feature-text">Delivery in no time! We guarantee no delays!</p>
         </div>
 
         <div class="feature">
           <div class = "feature-heading">
-            <img src="{% static 'index/images/check.png' %}" class="feature-icon">
-            <h2 class="feature-h2">Benefit 2</h2>
+            <img src="{% static 'index/images/high_quality.png' %}" class="feature-icon">
+            <h2 class="feature-h2">High Quality</h2>
           </div>
-            <p class="feature-text">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+            <p class="feature-text">We have the highest quality products in all of Europe!</p>
         </div>
 
         <div class="feature">
           <div class = "feature-heading">
-            <img src="{% static 'index/images/check.png' %}" class="feature-icon">
-            <h2 class="feature-h2">Benefit 3</h2>
+            <img src="{% static 'index/images/great_prices.png' %}" class="feature-icon">
+            <h2 class="feature-h2">Great Prices</h2>
           </div>
-            <p class="feature-text">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+            <p class="feature-text">Nothing overpriced! The best prices you can find!</p>
         </div>
 
       </div>
@@ -111,13 +112,13 @@
       <div class="FAQ-flex1">
 
         <div class="question question1">
-          <h2 class="question-title">How to work with belts?</h2>
-          <p class="question-answer">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi beatae, officia necessitatibus reprehenderit dolore repudiandae et modi quis.</p>
+          <h2 class="question-title">How are the prices so cheap?</h2>
+          <p class="question-answer">We have partners all around the world and we take very little of the price you pay!</p>
         </div>
 
         <div class="question question2">
           <h2 class="question-title">Can I refund an item?</h2>
-          <p class="question-answer">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi beatae, officia necessitatibus reprehenderit dolore repudiandae et modi quis.</p>
+          <p class="question-answer">Of course! You need a receipt! It's as easy as one phone call, sending it back or getting it to a store of ours!</p>
         </div>  
 
     </div>
@@ -125,19 +126,19 @@
     <div class="FAQ-flex2">
 
       <div class="question question3">
-        <h2 class="question-title">How long does it take?</h2>
-        <p class="question-answer">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi beatae, officia necessitatibus reprehenderit dolore repudiandae et modi quis.</p>
+        <h2 class="question-title">How long does it take for items to be delivered?</h2>
+        <p class="question-answer">It takes approximately 3 to 5 working days for a product to ship! If the product is large, it might take as little as 1 day!</p>
       </div>
 
       <div class="question question4">
-        <h2 class="question-title">How much is the average price?</h2>
-        <p class="question-answer">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi beatae, officia necessitatibus reprehenderit dolore repudiandae et modi quis.</p>
+        <h2 class="question-title">Are the products original?</h2>
+        <p class="question-answer">Yes! We buy them directly from the original companies in large stocks! Our policy is against selling fake products!</p>
       </div>  
 
   </div>
 
 
-      <a href="index.html" class="FAQ-more-info">More info &rarr;</a>
+      <a href="{% url 'products_page' %}" class="FAQ-more-info">More info about us &rarr;</a>
 
     </section>
 <!-- END OF FAQ section -->

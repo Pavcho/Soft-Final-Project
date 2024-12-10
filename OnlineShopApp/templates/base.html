@@ -21,7 +21,7 @@
   <!-- HEADER -->
   <header>
     <!-- The img logo -->
-    <img class="logo" src="{% static 'index/images/techno-logo-4.png' %}" alt="logo">
+    <img class="logo" src="{% static 'index/images/techno-logo-4.png' %}" alt="Technocenter">
     <!-- Navigation -->
         <!-- Unordered list of hyperlink, leading to the other pages -->
         <ul class = "navigation_links">
@@ -38,6 +38,7 @@
                 <li><a class="username" href="{% url 'profile_details' %}">{{ username }}</a></li>
                 <li><a class="username" href="{% url 'cart' %}">Cart</a></li>
                 <li><a class="username" href="{% url 'logout' %}">Logout</a></li>
+                <li class="current_funds">{{ funds }}$</li>
             {% endif %}
         </ul>
   </header>
@@ -56,10 +57,10 @@
     <div class="heading-one">
       <h1 class="footer-heading">Browse</h1>
       <ul class="footer-lists">
-        <li><a href="main_templates/index.html">Home</a></li>
-        <li><a href="main_templates/index.html">Products</a></li>
-        <li><a href="main_templates/index.html">About us</a></li>
-        <li><a href="main_templates/index.html">Contacts</a></li>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'products_page' %}">Products</a></li>
+        <li><a href="{% url 'products_page' %}">About us</a></li>
+        <li><a href="{% url 'products_page' %}">Contacts</a></li>
       </ul>
     </div>
 
@@ -67,7 +68,7 @@
       <h1 class="footer-heading">Contact us</h1>
       <ul class="footer-lists">
         <li><i class="fa fa-phone fa-lg"></i> 089 098 8765</li>
-        <li><i class="fa fa-envelope fa-lg"></i> asdasd@gmail.com</li>
+        <li><i class="fa fa-envelope fa-lg"></i> PavelKalchishkov@gmail.com</li>
         <li><i class="fa fa-map-marker fa-lg"></i> Ruse, Bulgaria</li>
         <li><i class="fa fa-clock-o fa-lg"></i> Monday - Friday, 09:00 - 18:00</li>
       </ul>
