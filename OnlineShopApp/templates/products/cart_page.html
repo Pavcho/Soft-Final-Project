@@ -16,7 +16,7 @@
         
             <form action="{% url 'buy_from_cart' whole_price %}" method="post">
                 {% csrf_token %}    
-                <h1>Total: {{ whole_price }}$</h1>
+                <h1>Total: {{ whole_price_display }}$</h1>
                 <button class="add-to-cart-btn">Buy!</button>
             </form>
         

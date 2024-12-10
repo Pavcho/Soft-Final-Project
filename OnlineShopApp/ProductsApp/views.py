@@ -12,7 +12,7 @@ class ProductsPageView(TemplateView):
         context['user_authenticated'] = user.is_authenticated
         if user.is_authenticated:
             context['username'] = user.username
+            context['funds'] = user.funds.sum
+            context['cart_list'] = user.cart.item_ids
         context['products'] = Product.objects.all()
-        context['funds'] = user.funds.sum
-        context['cart_list'] = user.cart.item_ids
         return context

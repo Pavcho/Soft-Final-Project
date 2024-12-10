@@ -82,6 +82,7 @@ class CartPageView(TemplateView):
                     products_array.append(product)
                     whole_price += product.price
             context['products'] = products_array
-            context['whole_price'] = f"{whole_price:,.2f}"
+            context['whole_price_display'] = f"{whole_price:,.2f}"
+            context['whole_price'] = whole_price
             context['funds'] = user.funds.sum
         return context
