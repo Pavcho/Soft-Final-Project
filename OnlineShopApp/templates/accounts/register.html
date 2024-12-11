@@ -3,6 +3,7 @@
 
 {% block content %}
 <div class="register-container">
+    
     <form method="post" class="register-form">
         {% csrf_token %}
         <h2 class="register-title">Register</h2>
@@ -28,6 +29,8 @@
         </div>
         <button type="submit" class="register-button">Register</button>
     </form>
+
+
 </div>
 {% endblock %}
 

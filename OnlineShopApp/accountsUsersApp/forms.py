@@ -1,4 +1,4 @@
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from django import forms
 from accountsUsersApp.models import ShippingAddress, Funds
@@ -15,8 +15,7 @@ class CustomUserCreationForm(UserCreationForm):
 class CustomUserLoginForm(AuthenticationForm):
     class Meta:
         model = get_user_model()
-        fields = ('email', 'password')
-
+        fields = ('username', 'password')
 
 class CustomUserEditForm(UserChangeForm):
     class Meta:

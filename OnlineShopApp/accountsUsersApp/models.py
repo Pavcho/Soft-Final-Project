@@ -8,7 +8,11 @@ from accountsUsersApp.validators import AllNumbersValidator, TenCharactersValida
 
 class CustomUser(AbstractUser):
     username = models.CharField(max_length=10,
-                                unique=True)
+                                unique=True,
+                                error_messages={
+                                    'unique': "A user with that username already exists.",
+                                    'max_length': "The user's username must be 10 characters or less.",
+                                })
 
     phone = models.CharField(unique=True,
                              validators=[
