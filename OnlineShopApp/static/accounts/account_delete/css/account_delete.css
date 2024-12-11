@@ -1,0 +1,58 @@
+/* Style for the delete profile container */
+.delete-profile-page {
+    min-height: 443px;
+    margin-top: 100px;
+}
+
+.delete-profile-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+}
+
+/* Title styling */
+.delete-profile-title {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* Delete button styling */
+.delete-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Go back button styling */
+.go-back-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.go-back-button:hover {
+    background-color: black;
+}

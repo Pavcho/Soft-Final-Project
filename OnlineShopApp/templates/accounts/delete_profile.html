@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Delete account</button>
-</form>
+{% block content %}
+    <div class="delete-profile-page">   
+        <div class="delete-profile-container">
+            <h1 class="delete-profile-title">Are you sure you want to delete your account?</h1>
+            <form method="post" class="delete-profile-form">
+                {% csrf_token %}
+                <button type="submit" class="delete-button">Yes, Delete My Account</button>
+            </form>
+            <a href="{% url 'profile_details' %}" class="go-back-button">Go Back</a>
+        </div>
+    </div>
 {% endblock %}
