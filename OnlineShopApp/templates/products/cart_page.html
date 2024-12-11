@@ -1,31 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
+    
     <div class="products-page">
-        <div class="product-container">
-            {% for product in products %}
-            <div class="product-box">
-                <img src="{{ product.image_url }}" alt="{{ product.name }}" class="product-image">
-                <div class="product-details">
-                    <h3 class="product-name">{{ product.name }}</h3>
-                    <p class="product-price">{{ product.price }}$</p>
-                </div>
+        {% if products %}
+    
+            <div class="cart-functions">
+                <h1>Cart Price: {{ whole_price_display }}$</h1>
+                
+                <form action="{% url 'buy_from_cart' whole_price %}" method="post">
+                    {% csrf_token %}
+                    <button class="add-to-cart-btn">Buy!</button>
+                </form>
+    
+                <form action="{% url 'remove_all_from_cart' %}" method="post">
+                    {% csrf_token %}
+                    <button class="remove-from-cart-btn">Empty cart!</button>
+                </form>
             </div>
-            {% endfor %}
         
-            <form action="{% url 'buy_from_cart' whole_price %}" method="post">
-                {% csrf_token %}    
-                <h1>Total: {{ whole_price_display }}$</h1>
-                <button class="add-to-cart-btn">Buy!</button>
-            </form>
-        
-            <form action="{% url 'remove_all_from_cart' %}" method="post">
-                {% csrf_token %}
-                <button class="remove-from-cart-btn">Empty cart!</button>
-            </form>
-        
-        </div>
+            <div class="product-container">
+                {% for product in products %}
+                <div class="product-box">
+                    <img src="{{ product.image_url }}" alt="{{ product.name }}" class="product-image">
+                    <div class="product-details">
+                        <h3 class="product-name">{{ product.name }}</h3>
+                        <p class="product-price">{{ product.price }}$</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    
+        {% else %}
+            
+        <div class="cart-functions">
+            <h1>Your cart is empty!</h1>
+        </div> 
+    
+        {% endif %}
+    
     </div>
 
 {% endblock %}

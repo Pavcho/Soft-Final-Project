@@ -7,10 +7,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 385px;
+    min-height: 543px;
 }
 
-.products-page-heading{
+.products-heading{
     text-align: center;
     background-color: #f4f4f9;
     padding: 50px;
@@ -95,4 +95,20 @@
 
 .products-page .remove-from-cart-btn:hover {
     background-color: black;
+}
+
+.cart-functions {
+    display: flex;
+    padding: 40px 0;
+    justify-content: center;
+    gap: 50px;
+}
+
+.cart-functions h1 {
+    color: #555;
+    padding-top: 15px;
+}
+
+.cart-functions .add-to-cart-btn, .cart-functions .remove-from-cart-btn {
+    font-size: 25px;
 }
