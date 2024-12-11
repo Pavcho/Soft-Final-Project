@@ -1,11 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <h1 class="products-heading">Products</h1>
+    <h1 class="products-heading">Manage Products</h1>
     <div class="products-page">
-            {% if is_staff_user %}
-                <a href="{% url 'manage_products_page' %}" class="manage-products-btn">Manage Products</a>
-            {% endif %}
         <div class="product-container">
             {% if not products %}
                 <h1 class="products-page-heading">No products found</h1>
@@ -17,17 +14,22 @@
                             <h3 class="product-name">{{ product.name }}</h3>
                             <p class="product-price">{{ product.price }}$</p>
                             <p class="product-availability">{% if product.available %}In stock {% else %}Out of stock {% endif %}</p>
-                            
-                            {% if product.available %}
+                
                                 {% if product.id not in cart_list %}
-                                    <form action="{% url 'add_to_cart' product.id %}" method="post">
+                                    <div class="manage-products-filters">
+                                    <form action="{% url 'edit_products_button' product.id %}" method="post">
                                         {% csrf_token %}    
-                                        <button class="add-to-cart-btn">Add to Cart</button>
+                                        <button class="add-to-cart-btn">Edit</button>
                                     </form>
+                                    
+                                    <form action="{% url 'delete_products_button' product.id %}" method="post">
+                                        {% csrf_token %}    
+                                        <button class="add-to-cart-btn">Delete</button>
+                                    </form>
+                                    </div>
                                 {% else %}
                                         <button class="already-in-cart-btn" disabled>Already in Cart</button>
                                 {% endif %}    
-                            {% endif %}
                         
                         </div>
                     </div>

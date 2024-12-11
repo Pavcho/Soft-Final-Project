@@ -7,11 +7,11 @@
             <form method="post" class="login-form">
                 {% csrf_token %}
                 <h2 class="login-title">Login</h2>
-                <div class="form-group">
+                <div class="product-form-group">
                     {{ form.username.label_tag }}
                     {{ form.username }}
                 </div>
-                <div class="form-group">
+                <div class="product-form-group">
                     {{ form.password.label_tag }}
                     {{ form.password }}
                 </div>

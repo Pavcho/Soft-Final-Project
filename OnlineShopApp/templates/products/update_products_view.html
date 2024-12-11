@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    
+<div class="edit-body">    
+    <div class="edit-product-form-container">
+        <h2>Update Item</h2>
+        <form method="POST" class="edit-product-form">
+            {% csrf_token %}
+            <div class="product-form-group">
+                {{ form.name.label_tag }}
+                {{ form.name }}
+            </div>
+            <div class="product-form-group">
+                {{ form.price.label_tag }}
+                {{ form.price }}
+            </div>
+            <div class="product-form-group">
+                {{ form.available.label_tag }}
+                {{ form.available }}
+            </div>
+            <div class="product-form-group">
+                {{ form.image_url.label_tag }}
+                {{ form.image_url }}
+            </div>
+            <button type="submit" class="submit-product-button">Update</button>
+        </form>
+    </div>
+</div>    
+
+{% endblock %}

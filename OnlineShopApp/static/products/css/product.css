@@ -111,3 +111,30 @@
 .cart-functions .add-to-cart-btn, .cart-functions .remove-from-cart-btn {
     font-size: 25px;
 }
+
+.manage-products-btn {
+    display: inline-block;
+    background-color: #777;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    margin-bottom: 50px;
+}
+
+.manage-products-btn:hover {
+    background-color: black;
+    border-color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.manage-products-filters{
+    display: flex;
+    justify-content: space-evenly;
+}

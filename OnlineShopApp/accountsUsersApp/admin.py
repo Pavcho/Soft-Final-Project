@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import CustomUser, ShippingAddress, Funds, Cart
 
+
 class CustomUserAdmin(admin.ModelAdmin):
     list_display = ('username', 'email', 'is_active',)
     search_fields = ('username', 'email')

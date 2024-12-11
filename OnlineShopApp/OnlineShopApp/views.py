@@ -78,6 +78,13 @@ def remove_all_from_card(request):
     user.cart.save()
     return redirect('cart')
 
+def edit_products_button(request, product_id):
+    return redirect('update_product', pk=product_id)
+
+def delete_products_button(request, product_id):
+    Product.objects.get(id=product_id).delete()
+    return redirect('manage_products_page')
+
 class CartPageView(TemplateView):
     template_name = "products/cart_page.html"
 
