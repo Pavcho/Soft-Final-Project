@@ -22,7 +22,6 @@ class ProductsPageView(TemplateView):
         return context
 
 
-
 class ManageProductsPageView(UserPassesTestMixin, TemplateView):
     template_name = "products/manage_products.html"
 

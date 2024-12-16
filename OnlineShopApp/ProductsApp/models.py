@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator
 from django.db import models
 
 class Product(models.Model):
@@ -6,7 +7,8 @@ class Product(models.Model):
                             error_messages={'Name should be unique': 'A product with this name already exists.'},
                             help_text="Name")
 
-    price = models.FloatField(help_text="Price")
+    price = models.FloatField(help_text="Price",
+                              validators=[MinValueValidator(0.0)],)
 
     available = models.BooleanField(default=True,
                                     help_text="Is this product available?")
