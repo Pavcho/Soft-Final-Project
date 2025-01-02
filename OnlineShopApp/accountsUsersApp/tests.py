@@ -1,7 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.db import DataError, IntegrityError
 from django.test import TestCase
-from accountsUsersApp.models import CustomUser
+from accountsUsersApp.models import CustomUser, ShippingAddress, Funds, Cart
 
 
 class CustomUserTest(TestCase):
@@ -123,3 +123,51 @@ class CustomUserTest(TestCase):
         )
 
         self.assertRaises(ValidationError, self.user.full_clean)
+
+
+    def test_shipping_address_with_values_added_to_user(self):
+        self.user = CustomUser.objects.create_user(
+            username="Test1",
+            phone="1111111111",
+            email="a@abv.bg",
+            password="123test123"
+        )
+
+        self.user.shipping_address = ShippingAddress.objects.create(
+            address_line_1="1",
+            address_line_2="2",
+            city="3",
+            country="4",
+            zipcode="5",
+        )
+
+        self.assertEqual(self.user.shipping_address_id, 1)
+        self.assertEqual(self.user.shipping_address.address_line_1, "1")
+        self.assertEqual(self.user.shipping_address.address_line_2, "2")
+        self.assertEqual(self.user.shipping_address.city, "3")
+        self.assertEqual(self.user.shipping_address.country, "4")
+        self.assertEqual(self.user.shipping_address.zipcode, "5")
+
+
+    def test_funds_added_to_user(self):
+        self.user = CustomUser.objects.create_user(
+            username="Test1",
+            phone="1111111111",
+            email="a@abv.bg",
+            password="123test123"
+        )
+        self.user.funds = Funds.objects.create()
+
+        self.assertEqual(self.user.funds_id, 1)
+
+
+    def test_cart_added_to_user(self):
+        self.user = CustomUser.objects.create_user(
+            username="Test1",
+            phone="1111111111",
+            email="a@abv.bg",
+            password="123test123"
+        )
+        self.user.cart = Cart.objects.create()
+
+        self.assertEqual(self.user.cart_id, 1)
